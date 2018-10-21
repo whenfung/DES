@@ -1,5 +1,5 @@
 # DES
-![DES](/DES.png)
+![DES](/des.png)
 
 DES加密算法使用了密码的两个原则：混淆和扩散
 
