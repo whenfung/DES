@@ -129,7 +129,7 @@ void DES_Cry(char MesIn[8],char MesOut[8]) {
 }
 
 void DES_Dec(char MesIn[8],char MesOut[8]) {
-//DES解密，加密的逆过程 
+//DES解密，加密的逆过程 doublesand 
 	int i=0;
 	static bool MesBit[64]= {0};
 	static bool Temp[32]= {0};
@@ -152,22 +152,22 @@ int main() {
 	char MyKey[8]= {0};       //初始密钥
 	char YourKey[8]= {0};     //解密密钥
 	char MyMessage[8]= {0};   //明文
-	printf("Please input your Message(Max 64 bit):\n");
+	printf("请输入明文(不超过 64 bit):\n");
 	gets(MyMessage);//明文
-	printf("Please input your Secret Key(64 bit):\n");
+	printf("输入密钥(64 bit):\n");
 	gets(MyKey);//密钥
 	Getsubkey(MyKey);            //生成子密钥放在主函数执行 
  	DES_Cry(MyMessage,MesHex);   //加密过程 
-	printf("Your Message is Encrypted As:\n");
+	printf("密文如下:\n");
 	for(i=0; i<16; i++) {
 		printf("%c ",MesHex[i]);
 	}
 	printf("\n");
-	printf("Please input your Secret Key to Deciphering:\n");
+	printf("输入密钥解密:\n");
 	gets(YourKey);//get密钥
 	Getsubkey(YourKey);   //生成子密钥 
 	DES_Dec(MesHex,MyMessage);  //解密过程 
-	printf("Deciphering Over !!:\n");
+	printf("解密完成 !!:\n");
 	for(i=0; i<8; i++) {
 		printf("%c ",MyMessage[i]);
 	}
